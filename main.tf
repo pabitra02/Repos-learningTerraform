@@ -50,7 +50,8 @@ module "blog_asg" {
 }
 
 module "blog_alb" {
-  source = "terraform-aws-modules/alb/aws"
+  source  = "terraform-aws-modules/alb/aws"
+  version = "9.10.0"
 
   name    = "blog-alb"
   vpc_id  = module.blog_vpc.vpc_id
