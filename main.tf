@@ -42,7 +42,7 @@ module "blog_sg" {
   egress_cidr_blocks = ["0.0.0.0/0"]
 
   egress_rules      = ["all-all"]
-  eress_cidr_blocks = ["0.0.0.0/0"]
+  egress_cidr_blocks = ["0.0.0.0/0"]
 }
 
 
