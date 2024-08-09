@@ -54,11 +54,6 @@ module "alb" {
   security_groups = [module.blog_sg.security_group_id]
 
 
-
-  access_logs = {
-    bucket = "my-alb-logs"
-  }
-
   listeners = {
     ex-http-https-redirect = {
       port     = 80
