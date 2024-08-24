@@ -21,11 +21,26 @@ data "aws_vpc" "default" {
 resource "aws_instance" "Khmer_web" {
   ami                    = data.aws_ami.app_ami.id
   instance_type          = var.instance_type
-  vpc_security_group_ids = [aws_security_group.Khmer_web.id]
+  vpc_security_group_ids = [module.Khmer_web_SG.security_group_id]
 
   tags = {
     Name = "Khmer_Pride"
   }
+}
+
+module "Khmer_web_SG" {
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "5.1.2"
+  name    = "Khmer-web_noude-sec"
+
+  vpc_id              = data.aws_vpc.default.id
+  ingress_rule        = ["http-80-tcp","https-443-tcp"]
+  ingress_cidr_blocks = ["0.0.0.0/0"]
+
+
+  egress_rule        = ["all-all"]
+  egress_cidr_blocks = ["0.0.0.0/0"]
+
 }
 
 resource "aws_security_group" "Khmer_web" {
