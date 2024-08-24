@@ -51,6 +51,7 @@ resource "aws_security_group_rule" "Khmer_web_http_in" {
   security_group_id   = aws_security_group.Khmer_web.id
 
 }
+
 resource "aws_security_group_rule" "Khmer_web_https_in" {
   type                = ingress
   from_port           = 443
@@ -60,7 +61,9 @@ resource "aws_security_group_rule" "Khmer_web_https_in" {
   
   security_group_id   = aws_security_group.Khmer_web.id
 
-}resource "aws_security_group_rule" "Khmer_web_everything_out" {
+}
+
+resource "aws_security_group_rule" "Khmer_web_everything_out" {
   type                = engress
   from_port           = 0
   to_port             = 0
