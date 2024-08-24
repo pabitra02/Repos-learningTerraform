@@ -34,11 +34,11 @@ module "Khmer_web_SG" {
   name    = "Khmer-web_noude-sec"
 
   vpc_id              = data.aws_vpc.default.id
-  ingress_rule        = ["http-80-tcp","https-443-tcp"]
+  ingress_rules        = ["http-80-tcp","https-443-tcp"]
   ingress_cidr_blocks = ["0.0.0.0/0"]
 
 
-  egress_rule        = ["all-all"]
+  egress_rules        = ["all-all"]
   egress_cidr_blocks = ["0.0.0.0/0"]
 
 }
