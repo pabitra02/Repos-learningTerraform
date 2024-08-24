@@ -43,7 +43,7 @@ resource "aws_instance" "Khmer_web" {
   instance_type          = var.instance_type
   vpc_security_group_ids = [module.Khmer_web_SG.security_group_id]
 
-  subnet_id = module.Khmer_web_vpc.private_subnets[0]
+  subnet_id = module.Khmer_web_vpc.public_subnets[0]
 
   tags = {
     Name = "Khmer_Pride"
