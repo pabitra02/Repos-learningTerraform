@@ -42,7 +42,7 @@ resource "aws_security_group" "Khmer_web" {
 }   
 
 resource "aws_security_group_rule" "Khmer_web_http_in" {
-  type                = ingress
+  type                = "ingress"
   from_port           = 80
   to_port             = 80
   protocol            = "tcp"
@@ -53,7 +53,7 @@ resource "aws_security_group_rule" "Khmer_web_http_in" {
 }
 
 resource "aws_security_group_rule" "Khmer_web_https_in" {
-  type                = ingress
+  type                = "ingress"
   from_port           = 443
   to_port             = 443
   protocol            = "tcp"
@@ -64,7 +64,7 @@ resource "aws_security_group_rule" "Khmer_web_https_in" {
 }
 
 resource "aws_security_group_rule" "Khmer_web_everything_out" {
-  type                = engress
+  type                = "egress"
   from_port           = 0
   to_port             = 0
   protocol            = "-1"
