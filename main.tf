@@ -22,9 +22,10 @@ resource "aws_instance" "Khmer_web" {
   ami           = data.aws_ami.app_ami.id
   instance_type = var.instance_type
 
-# Add aws_security_group to the instance degration
+  # Add aws_security_group to the instance degration
 
-vpc_security_group_ids = [aws_security_group_khmer_web.id]
+  vpc_security_group_ids = [aws_security_group_khmer_web.id]
+  
 
   tags = {
     Name = "Khmer_Pride"
