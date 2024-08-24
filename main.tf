@@ -29,7 +29,7 @@ resource "aws_instance" "Khmer_web" {
 }
 
 resource "aws_security_group" "Khmer_web" {
-  name = "blog"
+  name = "Khmer_web"
   tags = {
     Terraform = "true"
   }
