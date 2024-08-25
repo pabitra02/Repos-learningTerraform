@@ -50,7 +50,7 @@ resource "aws_instance" "Khmer_web" {
   }
 }
 
-module "blog_autoscaling" {
+module "Khmer_web_autoscaling" {
   source  = "terraform-aws-modules/autoscaling/aws"
   version = "6.5.2"
 
@@ -58,9 +58,9 @@ module "blog_autoscaling" {
 
   min_size            = 1
   max_size            = 1
-  vpc_zone_identifier = module.blog_vpc.public_subnets
-  target_group_arns   = module.blog_alb.target_group_arns
-  security_groups     = [module.blog_sg.security_group_id]
+  vpc_zone_identifier = module.Khmer_web_vpc.public_subnets
+  target_group_arns   = module.Khmer_web_alb.target_group_arns
+  security_groups     = [module.Khmer_web_sg.security_group_id]
   instance_type       = var.instance_type
   image_id            = data.aws_ami.app_ami.id
 }
@@ -73,13 +73,13 @@ module "Khmer_web_alb" {
 
   load_balancer_type = "application"
 
-  vpc_id             = module.blog_vpc.vpc_id
-  subnets            = module.blog_vpc.public_subnets
-  security_groups    = module.blog_sg.security_group_id
+  vpc_id             = module.Khmer_web_vpc.vpc_id
+  subnets            = module.Khmer_web_vpc.public_subnets
+  security_groups    = module.Khmer_web_sg.security_group_id
 
   target_groups = [
     {
-      name_prefix      = "blog-"
+      name_prefix      = "Khmer_web-"
       backend_protocol = "HTTP"
       backend_port     = 80
       target_type      = "instance"
