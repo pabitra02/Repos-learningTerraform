@@ -44,7 +44,7 @@ module "Khmer_web_alb" {
 
   vpc_id             = module.Khmer_web_vpc.vpc_id
   subnets            = module.Khmer_web_vpc.public_subnets
-  security_groups    = module.Khmer_web_sg.security_group_id
+  security_groups    = module.Khmer_web_SG.security_group_id
 
   target_groups = [
     {
