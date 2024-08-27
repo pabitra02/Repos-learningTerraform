@@ -42,7 +42,7 @@ module "Khmer-web_alb" {
 
   load_balancer_type = "application"
 
-  vpc_id             = [module.Khmer_web_vpc.vpc_id]
+  vpc_id             = module.Khmer_web_vpc.vpc_id
   subnets            = [module.Khmer_web_vpc.public_subnets]
   security_groups    = [module.Khmer_web_sg.security_group_id]
 
@@ -86,7 +86,7 @@ module "Khmer_web_sg" {
 
  # vpc_id               = data.aws_vpc.default.id
 
-  vpc_id                = [module.Khmer_web_vpc.vpc_id]
+  vpc_id                = module.Khmer_web_vpc.vpc_id
   name    = "Khmer-web_SG"
 
   ingress_rules         = ["http-80-tcp","https-443-tcp"]
