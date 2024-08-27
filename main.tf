@@ -44,7 +44,7 @@ module "autoscaling" {
   max_size            = 1
   
   vpc_zone_identifier = module.Khmer_web_vpc.public_subnets
-  target_group_arns   = module.Khmer_web_alb.target_group_arns
+  target_group_arns   = module.Khmer-web_alb.target_group_arns
   security_groups     = [module.Khmer_web_sg.security_group_id]
   instance_type       = var.instance_type
   image_id            = data.aws_ami.app_ami.id
