@@ -68,16 +68,20 @@ module "Khmer-web_alb" {
   }
 }
 
-resource "aws_instance" "Khmer_web" {
-  ami                    = data.aws_ami.app_ami.id
-  instance_type          = var.instance_type
-  vpc_security_group_ids = [module.Khmer_web_sg.security_group_id]
+module "autoscaling" {
+  source  = "terraform-aws-modules/autoscaling/aws"
+  version = "6.5.2"
 
-  subnet_id = module.Khmer_web_vpc.public_subnets[0]
+  name = "Khmer_web"
 
-  tags    = {
-    Name  = "Khmer_Pride"
-  }
+  min_size            = 1
+  max_size            = 1
+  
+  vpc_zone_identifier = module.Khmer_web_vpc.public_subnets
+  target_group_arns   = module.Khmer_web_alb.target_group_arns
+  security_groups     = [module.Khmer_web_sg.security_group_id]
+  instance_type       = var.instance_type
+  image_id            = data.aws_ami.app_ami.id
 }
 
 module "Khmer_web_sg" {
@@ -96,4 +100,3 @@ module "Khmer_web_sg" {
   egress_cidr_blocks  = ["0.0.0.0/0"]
 
 }
-
