@@ -84,19 +84,6 @@ module "Khmer-web_alb" {
   }
 }
 
-
-resource "aws_instance" "Khmer_web" {
-  ami                    = data.aws_ami.app_ami.id
-  instance_type          = var.instance_type
-  vpc_security_group_ids = [module.Khmer_web_sg.security_group_id]
-
-  subnet_id = module.Khmer_web_vpc.public_subnets[0]
-
-  tags    = {
-    Name  = "Khmer_Pride"
-  }
-}
-
 module "Khmer_web_sg" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "5.1.2"
