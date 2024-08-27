@@ -38,7 +38,7 @@ module "Khmer_web_vpc" {
   }
 }
 
-module "Khmer_web_alb" {
+module "khmer web alb" {
   source  = "terraform-aws-modules/alb/aws"
   version = "~> 6.0"
 
