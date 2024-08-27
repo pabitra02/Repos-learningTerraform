@@ -75,14 +75,14 @@ module "Khmer_web_alb" {
 
   vpc_id             = module.Khmer_web_vpc.vpc_id
   subnets            = module.Khmer_web_vpc.public_subnets
-  security_groups    = module.Khmer_web_sg.security_group_id
+  security_groups    = [module.Khmer_web_sg.security_group_id]
 
   target_groups = [
     {
       name_prefix      = "Khmer_web-"
       backend_protocol = "HTTP"
       backend_port     = 80
-      target_type      = "instance"
+      target_type      = aws_instance.Khmer_web.id
     }
   ]
 
