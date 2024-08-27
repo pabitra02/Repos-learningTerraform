@@ -38,11 +38,11 @@ module "Khmer_web_vpc" {
   }
 }
 
-module "khmer web alb" {
+module "khmer_web alb" {
   source  = "terraform-aws-modules/alb/aws"
   version = "~> 6.0"
 
-  name = "Khmer_web-alb"
+  name = "Khmer_web alb"
 
   load_balancer_type = "application"
 
