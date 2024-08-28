@@ -24,7 +24,7 @@ variable "environment" (
 		name 			= sting 
 		network_prefix 	= string
 	})
-
+)
 	default = {
 	
 	name 			= "Khmer_dev"
