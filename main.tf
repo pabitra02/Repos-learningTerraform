@@ -38,7 +38,7 @@ module "autoscaling" {
   source  = "terraform-aws-modules/autoscaling/aws"
   version = "6.5.2"
 
-  name = "Khmer_web"
+  name = var.environment.name
 
   min_size            = var.asg_min_siz
   max_size            = var.asg_max_size
