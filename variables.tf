@@ -17,7 +17,7 @@ variable "ami-filter" {
 	}
 }
 
-variable "environment" [
+variable "environment" (
 	description = "Development Environment"
 	
 	type = object ({
@@ -29,7 +29,7 @@ variable "environment" [
 	
 	name 			= "Khmer_dev"
 	network_prefix 	= "10.0"
-	]
+)
  ]
 
 }
