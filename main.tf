@@ -40,7 +40,7 @@ module "autoscaling" {
 
   name = var.environment.name
 
-  min_size            = var.asg_min_siz
+  min_size            = var.asg_min_size
   max_size            = var.asg_max_size
   
   vpc_zone_identifier = module.Khmer_web_vpc.public_subnets
