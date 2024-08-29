@@ -79,7 +79,7 @@ target_groups = [
   ]
 
   tags          = {
-    Environment = var.environment.name
+    Environment = "KHmer_Dev" 
   }
 }
 
