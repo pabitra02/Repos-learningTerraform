@@ -30,8 +30,7 @@ module "Khmer_web_vpc" {
 
   tags = {
     Terraform = "true"
-    Environment = "Khmer_dev"
-  }
+    Environment = var.environment.name
 }
 
 module "autoscaling" {
@@ -64,7 +63,7 @@ module "Khmer-web_alb" {
 
 target_groups = [
     {
-      name_prefix      = "${var.environment.name}web"
+      name_prefix      = "${var.environment.name}-web"
       backend_protocol = "HTTP"
       backend_port     = 80
       target_type      = "instance"
@@ -80,7 +79,7 @@ target_groups = [
   ]
 
   tags          = {
-    Environment = "dev"
+    Environment = var.environment.name
   }
 }
 
