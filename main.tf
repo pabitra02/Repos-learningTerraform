@@ -43,13 +43,13 @@ module "autoscaling" {
   max_size            = var.asg_max_size
   
   vpc_zone_identifier = module.Khmer_web_vpc.public_subnets
-  target_group_arns   = module.Khmer-web_alb.target_group_arns
+  target_group_arns   = module.Khmer_web_alb.target_group_arns
   security_groups     = [module.Khmer_web_sg.security_group_id]
   instance_type       = var.instance_type
   image_id            = data.aws_ami.app_ami.id
 }
 
-module "Khmer-web_alb" {
+module "Khmer_web_alb" {
   source  = "terraform-aws-modules/alb/aws"
   version = "~> 6.0"
 
