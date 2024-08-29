@@ -53,7 +53,7 @@ module "Khmer_alb" {
   source  = "terraform-aws-modules/alb/aws"
   version = "~> 6.0"
 
-  name = "${var.environment.name}_alb"
+  name = "Khmer_web_alb"
 
   load_balancer_type = "application"
 
