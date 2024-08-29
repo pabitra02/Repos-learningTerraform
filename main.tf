@@ -31,6 +31,7 @@ module "Khmer_web_vpc" {
   tags = {
     Terraform = "true"
     Environment = var.environment.name
+  }
 }
 
 module "autoscaling" {
