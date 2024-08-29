@@ -38,7 +38,7 @@ module "autoscaling" {
   source  = "terraform-aws-modules/autoscaling/aws"
   version = "6.5.2"
 
-  name = "Khmer_web"
+  name = "Khmer_web-auto"
   min_size            = var.asg_min_size
   max_size            = var.asg_max_size
   
@@ -53,7 +53,7 @@ module "Khmer-web_alb" {
   source  = "terraform-aws-modules/alb/aws"
   version = "~> 6.0"
 
-  name = "Khmer-web_alb"
+  name = "Khmer_web_alb"
 
   load_balancer_type = "application"
 
@@ -87,7 +87,7 @@ module "Khmer_web_sg" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "5.1.2"
 
-  vpc_id                = module.Khmer_web_vpc.vpc_id
+  vpc_id  = module.Khmer_web_vpc.vpc_id
   name    = "Khmer_web_SG"
 
   ingress_rules         = ["http-80-tcp","https-443-tcp"]
