@@ -49,7 +49,7 @@ module "autoscaling" {
   image_id            = data.aws_ami.app_ami.id
 }
 
-module "Khmer_web_alb" {
+module "Khmer-web_alb" {
   source  = "terraform-aws-modules/alb/aws"
   version = "~> 6.0"
 
