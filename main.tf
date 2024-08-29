@@ -50,11 +50,11 @@ module "autoscaling" {
   image_id            = data.aws_ami.app_ami.id
 }
 
-module "Khmer-web_alb" {
+module "Khmer_web_alb" {
   source  = "terraform-aws-modules/alb/aws"
   version = "~> 6.0"
 
-  name = "${var.environment.name}alb"
+  name = "Khmer_web_alb"
 
   load_balancer_type = "application"
 
