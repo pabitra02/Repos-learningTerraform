@@ -2,8 +2,8 @@ data "aws_ami" "app_ami" {
   most_recent = true
 
   filter {
-    name   = var.ami_filter.name
-    values = ["bitnami-tomcat-*-x86_64-hvm-ebs-nami"]
+    name   =  "name"
+    values = [var.ami_filter,name"]
   }
 
   filter {
@@ -11,7 +11,7 @@ data "aws_ami" "app_ami" {
     values = ["hvm"]
   }
 
-  owners = [var.ami_filter.name] 
+  owners = [var.ami_filter.name] # Bitnami
 }
 
 data "aws_vpc" "default" {
