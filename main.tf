@@ -79,7 +79,7 @@ target_groups = [
   ]
 
   tags          = {
-    Environment = var.environment.name
+    Environment = "Khmer_dev"
   }
 }
 
@@ -88,7 +88,7 @@ module "Khmer_web_sg" {
   version = "5.1.2"
 
   vpc_id                = module.Khmer_web_vpc.vpc_id
-  name    = "${var.environment.name}_SG"
+  name    = "Khmer_web_SG"
 
   ingress_rules         = ["http-80-tcp","https-443-tcp"]
   ingress_cidr_blocks   = ["0.0.0.0/0"]
