@@ -1,4 +1,4 @@
 output "environment_url" {
-	value = module.Khmer_web.alb.dns_name
+	value = module.Khmer-web.alb.dns_name
 
 }
