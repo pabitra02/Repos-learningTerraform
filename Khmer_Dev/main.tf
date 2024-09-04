@@ -1,3 +1,3 @@
 module "Khmer_Dev" {
-    source = "../module/Khmer_web"K
+    source = "../module/Khmer_web"
 }
