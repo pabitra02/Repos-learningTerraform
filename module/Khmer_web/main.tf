@@ -49,8 +49,7 @@ module "Khmer-web_autoscaling" {
 
 module "Khmer-web_alb" {
   source  = "terraform-aws-modules/alb/aws"
-  version = "9.11.0"
-  
+  version = "~> 6.0"
 
   name = "Khmer-web-alb"
 
@@ -66,6 +65,14 @@ module "Khmer-web_alb" {
       backend_protocol = "HTTP"
       backend_port     = 80
       target_type      = "instance"
+    }
+  ]
+
+  http_tcp_listeners = [
+    {
+      port               = 80
+      protocol           = "HTTP"
+      target_group_index = 0
     }
   ]
 
