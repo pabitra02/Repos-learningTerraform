@@ -49,7 +49,7 @@ module "Khmer-web_autoscaling" {
 
 module "Khmer-web_alb" {
   source  = "terraform-aws-modules/alb/aws"
-  version = "9.11.0"
+  
 
   name = "Khmer-web-alb"
 
