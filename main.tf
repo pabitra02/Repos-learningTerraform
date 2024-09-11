@@ -3,7 +3,7 @@ data "aws_ami" "app_ami" {
 
   filter {
     name   = "name"
-    values = ["ubuntu-pro-server/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-pro-server-20240701.1"]
+    values = ["bitnami-tomcat-9.0.82-3-r04-linux-debian-11-x86_64-hvm-ebs-nami"]
   }
 
   filter {
