@@ -30,7 +30,7 @@ resource "aws_instance" "blog" {
   }
 }
 
-resource "aws_security_group" "blog_sg"{
+resource "aws_security_group" "blog"{
   name        = "blog"
   description = "Web traffic https http in, and allow everything"
 
